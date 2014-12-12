@@ -44,7 +44,8 @@ var EstudianteComposite = Marionette.CompositeView.extend({
       		$carrera = $('input#carrera'),
       		$lugar = $('input#lugar'),
       		searchReg = /^[a-zA-Z0-9-]+$/;
-      		if($nombre.val() != "" && $cedula.val() != ""){
+      		
+      if($nombre.val() != "" && $cedula.val() != ""){
       		console.log("primer if");
 	       if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($carnet.val()) && searchReg.test($carrera.val()) && searchReg.test($lugar.val())){
 		    	this.collection.add({
@@ -58,13 +59,6 @@ var EstudianteComposite = Marionette.CompositeView.extend({
 	    }else {
 	    	console.log("else");
 	    }
-      	this.collection.add({
-	        nombre : $nombre.val(),
-	        cedula : $cedula.val(),
-	        carnet : $carnet.val(),
-	        carrera : $carrera.val(),
-	        lugar : $lugar.val()
-      	});
  	}
 
 })

@@ -10,7 +10,7 @@ var EstudianteComposite = Marionette.CompositeView.extend({
         <div class="row"><div class="grid-6"><label for="lugar">Lugar de Procedencia:</label></div><div class="grid-2"><input type="text" id="lugar"></div></div>\
         <p><a id="btn-newstudent" href="javascript:;">Crear Estudiante</a></p>\
       </form>\
-      </div><div class="listusers"><table id="estudiantes"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
+      </div><div class="boton"><a href="#crearstudiante">Crear Estudiante</a></div><div class="listusers"><table id="estudiantes"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
 
 	//add the container
 	childViewContainer : '#estudiantes',
@@ -52,11 +52,6 @@ var EstudianteComposite = Marionette.CompositeView.extend({
 	        carrera : $carrera.val(),
 	        lugar : $lugar.val()
       	});
- 	},
-
- 	eliminarEstudiante : function(){
- 		var miEstudianteCollection = new EstudianteCollection(JSON.parse(localStorage.getItem('estudianteCollection')));
-    	miEstudianteCollection.where({nombre: _nombre})[0].destroy();
  	}
 
 })

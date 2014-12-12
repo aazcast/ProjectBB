@@ -5,7 +5,6 @@ var universidadRouter = Backbone.Router.extend({
     'estudiantes' : 'showAllEstudiantes',
     'estudiantes/:cedula' : 'showEstudiante',
     'editstudent/:cedula' : 'editstudent',
-    'crearstudiante' : 'crearEstudiante',
     //Profesores
     'profesores' : 'showAllProfesores',
     'profesores/:cedula' : 'showProfesor',
@@ -14,6 +13,8 @@ var universidadRouter = Backbone.Router.extend({
     'funcionarios' : 'showAllFuncionarios',
     'funcionarios/:cedula' : 'showFuncionario',
     'editFuncionario/:cedula' : 'editFuncionario',
+    //Default
+    'crear' : 'crearPersona',
     '*other' : 'showDefault'
   },
   //Estudiantes
@@ -37,11 +38,6 @@ var universidadRouter = Backbone.Router.extend({
     var miFormView = new FormView({model: miEstudiante});
     $('#all-personas').html(miFormView.render().$el);
     
-  },
-  crearEstudiante : function () {
-    $('.forms').show();
-    $('.listusers').hide();
-    $('#single').hide();
   },
   //Profesores
   showProfesor : function(_cedula){
@@ -89,7 +85,13 @@ var universidadRouter = Backbone.Router.extend({
     var miFuncionarioView = new FormViewFuncionario({model: miFuncionario});
     $('#all-personas').html(miFuncionarioView.render().$el);
   },
-
+  //Default route
+  crearPersona : function () {
+    $('.forms').show();
+    $('.boton').hide();
+    $('.listusers').hide();
+    $('#single').hide();
+  },
   showDefault : function(route){
     $("#persona-view").hide();
     $("#all-personas").hide();

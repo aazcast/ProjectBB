@@ -11,7 +11,6 @@ var EstudianteComposite = Marionette.CompositeView.extend({
         <p><a id="btn-newstudent" href="javascript:;">Crear Estudiante</a></p>\
       </form>\
       </div><div class="boton cf"><a href="#crear">Crear Estudiante</a></div><div class="listusers"><table id="estudiantes"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
-
 	//add the container
 	childViewContainer : '#estudiantes',
 
@@ -44,7 +43,20 @@ var EstudianteComposite = Marionette.CompositeView.extend({
       		$carrera = $('input#carrera'),
       		$lugar = $('input#lugar'),
       		itisok = false;
-
+      		if($nombre.val() != "" && $cedula.val() != ""){
+      		console.log("primer if");
+	       if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($salario.val()) && searchReg.test($dias.val()) ){
+		    	this.collection.add({
+	        		nombre : $nombre.val(),
+	        		cedula : $cedula.val(),
+	        		carnet : $carnet.val(),
+	        		carrera : $carrera.val(),
+	       	 		lugar : $lugar.val()
+      			});
+	    	}
+	    }else {
+	    	console.log("else");
+	    }
       	this.collection.add({
 	        nombre : $nombre.val(),
 	        cedula : $cedula.val(),

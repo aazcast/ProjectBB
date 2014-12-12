@@ -42,13 +42,23 @@ var FuncionarioComposite = Marionette.CompositeView.extend({
       		$cedula = $('input#cedula'),
       		$salario = $('input#salario'),
       		$departamento = $('input#departamento'),
-      		itisok = false;
+      		searchReg = /^[a-zA-Z0-9-]+$/
+      		//itisok = false;
 
-      	this.collection.add({
-	        nombre : $nombre.val(),
-	        cedula : $cedula.val(),
-	        salario : $salario.val(),
-	        departamento : $departamento.val(),
-      	});
+      	
+	   if($nombre.val() != "" && $cedula.val() != ""){
+      		console.log("primer if");
+	       if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($salario.val()) && searchReg.test($dias.val()) ){
+		    	this.collection.add({
+		        	nombre : $nombre.val(),
+		        	cedula : $cedula.val(),
+		        	salario : $salario.val(),
+		        	departamento : $departamento.val(),
+	      		});	
+	    	}
+	    }else {
+	    	console.log("else");
+	    }
+      	
  	}
 })

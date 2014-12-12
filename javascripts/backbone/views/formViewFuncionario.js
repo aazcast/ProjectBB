@@ -17,13 +17,23 @@ var FormViewFuncionario = Marionette.ItemView.extend({
         $cedula = $('input#cedula'),
         $salario = $('input#salario'),
         $departamento = $('input#departamento'),
-        itisok = false;
-        console.log();
+        searchReg = /^[a-zA-Z0-9-]+$/;
 
-    var miFuncionarioCollection = new FuncionarioCollection(JSON.parse(localStorage.getItem('funcionarioCollection')));
-    miFuncionarioCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), salario : $salario.val(), departamento : $departamento.val()});
-  	localStorage["funcionarioCollection"] = JSON.stringify(miFuncionarioCollection);
-    Backbone.history.stop();
-    Backbone.history.start();
+    if($nombre.val() != "" && $cedula.val() != ""){
+            console.log("primer if");
+
+            if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($salario.val()) && searchReg.test($departamento.val()) ){
+            
+               var miFuncionarioCollection = new FuncionarioCollection(JSON.parse(localStorage.getItem('funcionarioCollection')));
+                        miFuncionarioCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), salario : $salario.val(), departamento : $departamento.val()});
+                        localStorage["funcionarioCollection"] = JSON.stringify(miFuncionarioCollection);
+                        Backbone.history.stop();
+                        Backbone.history.start();
+            }else {
+                console.log("in-else");
+            }
+        }else {
+            console.log("out-else");
+        }
   }
 }); 

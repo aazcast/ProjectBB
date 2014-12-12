@@ -46,7 +46,7 @@ var EstudianteComposite = Marionette.CompositeView.extend({
       		searchReg = /^[a-zA-Z0-9-]+$/;
       		if($nombre.val() != "" && $cedula.val() != ""){
       		console.log("primer if");
-	       if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($salario.val()) && searchReg.test($dias.val()) ){
+	       if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($carnet.val()) && searchReg.test($carrera.val()) && searchReg.test($lugar.val())){
 		    	this.collection.add({
 	        		nombre : $nombre.val(),
 	        		cedula : $cedula.val(),

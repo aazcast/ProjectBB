@@ -1,12 +1,12 @@
 var FormViewProfesor = Marionette.ItemView.extend({
 	className : 'formBlog',
-	template : _.template('<form>\
+	template : _.template('<div class="forms"><form>\
         <div class="row"><div class="grid-6"><label for="name">Nombre:</label></div><div class="grid-2"><input type="text" id="name" value="<%- nombre %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="cedula">Cédula:</label></div><div class="grid-2"><input type="text" id="cedula" value="<%- cedula %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="salario">Salario:</label></div><div class="grid-2"><input type="text" id="salario" value="<%- salario %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="carrera">Dias Loborales:</label></div><div class="grid-2"><input type="text" id="diasLaborales" value="<%- diasLaborales %>"></div></div>\
         <p><a id="btn-editprofe" href="javascript:;">Editar Profesor</a></p>\
-      </form>'),
+      </form></div>'),
 	//events
 	events : {
  		'click #btn-editprofe' : 'editProfesor'//clickBoton edita un estudiante

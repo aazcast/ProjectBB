@@ -1,13 +1,13 @@
-var FormView = Marionette.ItemView.extend({
+<div class="forms">var FormView = Marionette.ItemView.extend({
 	className : 'formBlog',
-	template : _.template('<form>\
+	template : _.template('<div class="forms"><form>\
         <div class="row"><div class="grid-6"><label for="name">Nombre:</label></div><div class="grid-2"><input type="text" id="name" value="<%- nombre %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="cedula">Cédula:</label></div><div class="grid-2"><input type="text" id="cedula" value="<%- cedula %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="carnet">Carnet:</label></div><div class="grid-2"><input type="text" id="carnet" value="<%- carnet %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="carrera">Carrera:</label></div><div class="grid-2"><input type="text" id="carrera" value="<%- carrera %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="lugar">Lugar de Procedencia:</label></div><div class="grid-2"><input type="text" id="lugar" value="<%- lugar %>"></div></div>\
         <p><a id="btn-editstudent" href="javascript:;">Editar Estudiante</a></p>\
-      </form>'),
+      </form></div>'),
 	//events
 	events : {
  		'click #btn-editstudent' : 'editEstudiante'//clickBoton edita un estudiante

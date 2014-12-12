@@ -6,7 +6,7 @@ var ProfesorView = Marionette.ItemView.extend({
      	'click .eliminarProfe' : 'eliminarProfe'//click eliminar estudiante 
     },
     eliminarProfe : function(){
- 		var miProfeCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('estudianteCollection')));
+ 		var miProfeCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
     	miProfeCollection.where({nombre: this.model.attributes.nombre})[0].destroy();
     	localStorage["profesorCollection"] = JSON.stringify(miProfeCollection);
     	Backbone.history.stop();

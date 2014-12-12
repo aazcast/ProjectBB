@@ -4,6 +4,9 @@ var universidadRouter = Backbone.Router.extend({
     'estudiantes' : 'showAllEstudiantes',
     'estudiantes/:cedula' : 'showEstudiante',
     'editstudent/:cedula' : 'editstudent',
+    'profesores' : 'showAllProfesores',
+    'profesores/:cedula' : 'showProfesor',
+    'editProfesores/:cedula' : 'editProfesor',
     '*other' : 'showDefault'
   },
   showEstudiante : function(_cedula){
@@ -27,6 +30,30 @@ var universidadRouter = Backbone.Router.extend({
     $('#all-personas').html(miFormView.render().$el);
     
   },
+
+  showProfesor : function(_cedula){
+    var miProfesoresCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
+    var miProfesor = miProfesoresCollection.where({cedula: _cedula})[0];
+    var miProfesorView = new UnProfesorView({model: miProfesor});
+    $('#all-personas').hide();
+    $("#no-route").hide();
+    $('#single').html(miProfesorView.render().$el);
+  },
+
+  showAllProfesores : function(){
+    var miProfesoresView = new ProfesorComposite({ collection : new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection'))) });
+    $("#no-route").hide();
+    $("#all-personas").show();
+    $('#all-personas').html(miProfesoresView.render().$el);
+  },
+
+  editProfesor : function (_cedula) {
+    var miProfesoresCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
+    var miProfesor = miProfesoresCollection.where({cedula: _cedula})[0];
+    var miFormView = new FormView({model: miProfesor});
+    $('#all-personas').html(miFormView.render().$el);
+  },
+
   showDefault : function(route){
     $("#persona-view").hide();
     $("#all-personas").hide();

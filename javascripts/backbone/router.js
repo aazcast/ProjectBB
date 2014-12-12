@@ -3,6 +3,7 @@ var universidadRouter = Backbone.Router.extend({
   routes : {
     'estudiantes' : 'showAllEstudiantes',
     'estudiantes/:cedula' : 'showEstudiante',
+    'editstudent/:cedula' : 'editstudent',
     '*other' : 'showDefault'
   },
   showEstudiante : function(_cedula){
@@ -18,6 +19,13 @@ var universidadRouter = Backbone.Router.extend({
     $("#no-route").hide();
     $("#all-personas").show();
     $('#all-personas').html(miEstudiantesView.render().$el);
+  },
+  editstudent : function (_cedula) {
+    var miEstudianteCollection = new EstudianteCollection(JSON.parse(localStorage.getItem('estudianteCollection')));
+    var miEstudiante = miEstudianteCollection.where({cedula: _cedula})[0];
+    var miFormView = new FormView({model: miEstudiante});
+    $('#all-personas').html(miFormView.render().$el);
+    
   },
   showDefault : function(route){
     $("#persona-view").hide();

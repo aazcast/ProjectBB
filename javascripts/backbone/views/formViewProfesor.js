@@ -17,13 +17,31 @@ var FormViewProfesor = Marionette.ItemView.extend({
         $cedula = $('input#cedula'),
         $salario = $('input#salario'),
         $dias = $('input#diasLaborales'),
-        itisok = false;
+        searchReg = /^[a-zA-Z0-9-]+$/;
         console.log();
 
-    var miProfesorCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
-    miProfesorCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), salario : $salario.val(), diasLaborales : $dias.val()});
-  	localStorage["profesorCollection"] = JSON.stringify(miProfesorCollection);
-    Backbone.history.stop();
-    Backbone.history.start();
+    //var miProfesorCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
+    //miProfesorCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), salario : $salario.val(), diasLaborales : $dias.val()});
+  	//localStorage["profesorCollection"] = JSON.stringify(miProfesorCollection);
+    //Backbone.history.stop();
+    //Backbone.history.start();
+
+    if($nombre.val() != "" && $cedula.val() != ""){
+            console.log("primer if");
+
+            if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($salario.val()) && searchReg.test($dias.val()) ){
+            
+               var  miProfesorCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
+                    miProfesorCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), salario : $salario.val(), diasLaborales : $dias.val()});
+                    localStorage["profesorCollection"] = JSON.stringify(miProfesorCollection);
+                    Backbone.history.stop();
+                    Backbone.history.start();
+            }else {
+                console.log("in-else");
+            }
+        }else {
+            console.log("out-else");
+        }
+
   }
 }); 

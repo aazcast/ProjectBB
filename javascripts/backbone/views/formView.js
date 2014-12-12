@@ -19,12 +19,28 @@ var FormView = Marionette.ItemView.extend({
         $carnet = $('input#carnet'),
         $carrera = $('input#carrera'),
         $lugar = $('input#lugar'),
-        itisok = false;
-        console.log()
-    var miEstudianteCollection = new EstudianteCollection(JSON.parse(localStorage.getItem('estudianteCollection')));
-    miEstudianteCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), carnet : $carnet.val(), carrera : $carrera.val(), lugar : $lugar.val()});
-  	localStorage["estudianteCollection"] = JSON.stringify(miEstudianteCollection);
-    Backbone.history.stop();
-    Backbone.history.start();
+        searchReg = /^[a-zA-Z0-9-]+$/;
+    //var miEstudianteCollection = new EstudianteCollection(JSON.parse(localStorage.getItem('estudianteCollection')));
+    //miEstudianteCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), carnet : $carnet.val(), carrera : $carrera.val(), lugar : $lugar.val()});
+  	//localStorage["estudianteCollection"] = JSON.stringify(miEstudianteCollection);
+   // Backbone.history.stop();
+   // Backbone.history.start();
+
+    if($nombre.val() != "" && $cedula.val() != ""){
+            console.log("primer if");
+
+            if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($carnet.val()) && searchReg.test($carrera.val()) && searchReg.test($lugar.val())){
+            
+               var  miEstudianteCollection = new EstudianteCollection(JSON.parse(localStorage.getItem('estudianteCollection')));
+                    miEstudianteCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), carnet : $carnet.val(), carrera : $carrera.val(), lugar : $lugar.val()});
+                    localStorage["estudianteCollection"] = JSON.stringify(miEstudianteCollection);
+                    Backbone.history.stop();
+                    Backbone.history.start();
+            }else {
+                console.log("in-else");
+            }
+        }else {
+            console.log("out-else");
+        }
   }
 }); 

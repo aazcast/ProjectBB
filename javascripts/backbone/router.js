@@ -50,8 +50,8 @@ var universidadRouter = Backbone.Router.extend({
   editProfesor : function (_cedula) {
     var miProfesoresCollection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
     var miProfesor = miProfesoresCollection.where({cedula: _cedula})[0];
-    var miFormView = new FormView({model: miProfesor});
-    $('#all-personas').html(miFormView.render().$el);
+    var miFormViewProfesor = new FormViewProfesor({model: miProfesor});
+    $('#all-personas').html(miFormViewProfesor.render().$el);
   },
 
   showDefault : function(route){

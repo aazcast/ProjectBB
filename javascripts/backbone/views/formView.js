@@ -6,7 +6,6 @@ var FormView = Marionette.ItemView.extend({
         <div class="row"><div class="grid-6"><label for="carnet">Carnet:</label></div><div class="grid-2"><input type="text" id="carnet" value="<%- carnet %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="carrera">Carrera:</label></div><div class="grid-2"><input type="text" id="carrera" value="<%- carrera %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="lugar">Lugar de Procedencia:</label></div><div class="grid-2"><input type="text" id="lugar" value="<%- lugar %>"></div></div>\
-        <p><a id="btn-newstudent" href="javascript:;">Crear Estudiante</a></p>\
         <p><a id="btn-editstudent" href="javascript:;">Editar Estudiante</a></p>\
       </form>'),
 	//events

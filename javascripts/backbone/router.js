@@ -1,12 +1,18 @@
 var universidadRouter = Backbone.Router.extend({
 
   routes : {
+    //estudiantes
     'estudiantes' : 'showAllEstudiantes',
     'estudiantes/:cedula' : 'showEstudiante',
     'editstudent/:cedula' : 'editstudent',
+    //Profesores
     'profesores' : 'showAllProfesores',
     'profesores/:cedula' : 'showProfesor',
     'editProfesores/:cedula' : 'editProfesor',
+    //Funcionarios
+    'funcionarios' : 'showAllFuncionarios',
+    'funcionarios/:cedula' : 'showFuncionario',
+    'editFuncionario/:cedula' : 'editFuncionario',
     '*other' : 'showDefault'
   },
   showEstudiante : function(_cedula){
@@ -52,6 +58,29 @@ var universidadRouter = Backbone.Router.extend({
     var miProfesor = miProfesoresCollection.where({cedula: _cedula})[0];
     var miFormViewProfesor = new FormViewProfesor({model: miProfesor});
     $('#all-personas').html(miFormViewProfesor.render().$el);
+  },
+
+  showFuncionario : function(_cedula){
+    var miFuncionarioCollection = new FuncionarioCollection(JSON.parse(localStorage.getItem('funcionarioCollection')));
+    var miFuncionario = miFuncionarioCollection.where({cedula: _cedula})[0];
+    var miFuncionarioView = new UnFuncionarioView({model: miFuncionario});
+    $('#all-personas').hide();
+    $("#no-route").hide();
+    $('#single').html(miFuncionarioView.render().$el);
+  },
+
+  showAllFuncionarios : function(){
+    var miFuncionarioView = new FuncionarioComposite({ collection : new FuncionarioCollection(JSON.parse(localStorage.getItem('funcionarioCollection'))) });
+    $("#no-route").hide();
+    $("#all-personas").show();
+    $('#all-personas').html(miFuncionarioView.render().$el);
+  },
+
+  editFuncionario : function (_cedula) {
+    var miFuncionarioCollection = new FuncionarioCollection(JSON.parse(localStorage.getItem('funcionarioCollection')));
+    var miFuncionario = miFuncionarioCollection.where({cedula: _cedula})[0];
+    var miFuncionarioView = new FormViewFuncionario({model: miFuncionario});
+    $('#all-personas').html(miFuncionarioView.render().$el);
   },
 
   showDefault : function(route){

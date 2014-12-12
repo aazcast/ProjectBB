@@ -1,28 +1,27 @@
-var ProfesorComposite = Marionette.CompositeView.extend({
+var FuncionarioComposite = Marionette.CompositeView.extend({
 	//add the template
   	template : _.template('<div class="forms">\
-     <h2>Nuevo Profesor</h2>\
+     <h2>Nuevo Funcionario</h2>\
        <form>\
           <div class="row"><div class="grid-6"><label for="name">Nombre:</label></div><div class="grid-2"><input type="text" id="name"></div></div>\
           <div class="row"><div class="grid-6"><label for="cedula">Cédula:</label></div><div class="grid-2"><input type="text" id="cedula"></div></div>\
           <div class="row"><div class="grid-6"><label for="salario">Salario:</label></div><div class="grid-2"><input type="text" id="salario"></div></div>\
-          <div class="row"><div class="grid-6"><label for="diasLaborales">Dias Laborales:</label></div><div class="grid-2"><input type="text" id="diasLaborales"></div></div>\
-          <p><a id="btn-newprofe" href="javascript:;">Crear Profesor</a></p>\
-          <p><a id="btn-editprofe" href="javascript:;">Editar Profesor</a></p>\
+          <div class="row"><div class="grid-6"><label for="departamento">Departamento:</label></div><div class="grid-2"><input type="text" id="departamento"></div></div>\
+          <p><a id="btn-newfunc" href="javascript:;">Crear Funcionario</a></p>\
       </form>\
-      </div><div class="listusers"><table id="profesores"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
+      </div><div class="listusers"><table id="funcionario"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
 
 	//add the container
-	childViewContainer : '#profesores',
+	childViewContainer : '#funcionario',
 
 	//add the view line
-	childView : ProfesorView,
+	childView : FuncionarioView,
 
 	//events
 	events : {
-		'click #btn-newprofe' : 'nuevoProfesor',//clickBoton crear nuevo profesor
- 		'click #show-form' : 'mostrarForm'//clickBoton mostrar formulario profesor
- 		//'click #btn-editprof' : 'editProfesor'//clickBoton edita un profesor
+		'click #btn-newfunc' : 'nuevoFuncionario',//clickBoton crear nuevo funcionario
+ 		'click #show-form' : 'mostrarForm'//clickBoton mostrar formulario funcionario
+ 		//'click #btn-editprof' : 'editProfesor'//clickBoton edita un funcionario
 
 	},
 
@@ -31,25 +30,25 @@ var ProfesorComposite = Marionette.CompositeView.extend({
 	},
 
 	changeRender : function(){
- 		alert("Un profesor ha cambiado");
+ 		alert("Un funcionario ha cambiado");
  		this.render();
  	},
  	/*onBeforeRender : function(){
  		this.collection = new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection')));
  	},*/
 
- 	nuevoProfesor : function(){
- 		var   $nombre = $('input#name'),
+ 	nuevoFuncionario : function(){
+ 		var $nombre = $('input#name'),
       		$cedula = $('input#cedula'),
       		$salario = $('input#salario'),
-      		$dias = $('input#diasLaborales'),
+      		$departamento = $('input#departamento'),
       		itisok = false;
 
       	this.collection.add({
 	        nombre : $nombre.val(),
 	        cedula : $cedula.val(),
 	        salario : $salario.val(),
-	        diasLaborales : $dias.val(),
+	        departamento : $departamento.val(),
       	});
  	}
 })

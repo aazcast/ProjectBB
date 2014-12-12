@@ -217,6 +217,7 @@ form a:hover {
 .goback { 
 max-width: 400px;
 margin: 0 auto;
+display: none;
 }
 
 .goback a {
@@ -240,4 +241,11 @@ margin: 0 auto;
   -webkit-box-shadow: 0px 0px 5px 0px #c21e1e;
   -moz-box-shadow: 0px 0px 5px 0px #c21e1e;
   box-shadow: 0px 0px 5px 0px #c21e1e;
+}
+
+.success {
+	max-width: 400px;
+	margin: 0 auto;
+	display: none;
+	text-align: center;
 }

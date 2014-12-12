@@ -1,4 +1,4 @@
-<div class="forms">var FormView = Marionette.ItemView.extend({
+var FormView = Marionette.ItemView.extend({
 	className : 'formBlog',
 	template : _.template('<div class="forms"><form>\
         <div class="row"><div class="grid-6"><label for="name">Nombre:</label></div><div class="grid-2"><input type="text" id="name" value="<%- nombre %>"></div></div>\

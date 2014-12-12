@@ -37,6 +37,7 @@ var universidadRouter = Backbone.Router.extend({
     var miEstudiante = miEstudianteCollection.where({cedula: _cedula})[0];
     var miFormView = new FormView({model: miEstudiante});
     $('#all-personas').html(miFormView.render().$el);
+    $('.forms').show();
     
   },
   //Profesores
@@ -61,6 +62,7 @@ var universidadRouter = Backbone.Router.extend({
     var miProfesor = miProfesoresCollection.where({cedula: _cedula})[0];
     var miFormViewProfesor = new FormViewProfesor({model: miProfesor});
     $('#all-personas').html(miFormViewProfesor.render().$el);
+    $('.forms').show();
   },
   //Funcionarios
   showFuncionario : function(_cedula){
@@ -84,6 +86,7 @@ var universidadRouter = Backbone.Router.extend({
     var miFuncionario = miFuncionarioCollection.where({cedula: _cedula})[0];
     var miFuncionarioView = new FormViewFuncionario({model: miFuncionario});
     $('#all-personas').html(miFuncionarioView.render().$el);
+    $('.forms').show();
   },
   //Default route
   crearPersona : function () {

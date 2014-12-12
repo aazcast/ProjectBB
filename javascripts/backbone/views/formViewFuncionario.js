@@ -6,7 +6,7 @@ var FormViewFuncionario = Marionette.ItemView.extend({
         <div class="row"><div class="grid-6"><label for="salario">Salario:</label></div><div class="grid-2"><input type="text" id="salario" value="<%- salario %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="carrera">Departamento:</label></div><div class="grid-2"><input type="text" id="departamento" value="<%- departamento %>"></div></div>\
         <p><a id="btn-editfunc" href="javascript:;">Editar Funcionario</a></p>\
-      </form></div>'),
+      </form></div><div class="success"><p>Su Funcionario se ha editado exitosamente</p></div><div class="goback"><a href="#funcionarios">Volver</a></div>'),
 	//events
 	events : {
  		'click #btn-editfunc' : 'editFuncionario'//clickBoton edita un estudiante
@@ -29,6 +29,7 @@ var FormViewFuncionario = Marionette.ItemView.extend({
                         localStorage["funcionarioCollection"] = JSON.stringify(miFuncionarioCollection);
                         Backbone.history.stop();
                         Backbone.history.start();
+                        $('.success').show();
             }else {
                 console.log("in-else");
             }

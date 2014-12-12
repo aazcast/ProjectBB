@@ -10,7 +10,7 @@ var EstudianteComposite = Marionette.CompositeView.extend({
         <div class="row"><div class="grid-6"><label for="lugar">Lugar de Procedencia:</label></div><div class="grid-2"><input type="text" id="lugar"></div></div>\
         <p><a id="btn-newstudent" href="javascript:;">Crear Estudiante</a></p>\
       </form>\
-      </div><div><a>Volver</a></div><div class="boton cf"><a href="#crear">Crear Estudiante</a></div><div class="listusers"><table id="estudiantes"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
+      </div><div class="goback"><a href="#estudiantes">Volver</a></div><div class="boton cf"><a href="#crear">Crear Estudiante</a></div><div class="listusers"><table id="estudiantes"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
 
 	//add the container
 	childViewContainer : '#estudiantes',
@@ -43,7 +43,7 @@ var EstudianteComposite = Marionette.CompositeView.extend({
       		$carnet = $('input#carnet'),
       		$carrera = $('input#carrera'),
       		$lugar = $('input#lugar'),
-      		itisok = false;
+      		searchReg = /^[a-zA-Z0-9-]+$/;
       		if($nombre.val() != "" && $cedula.val() != ""){
       		console.log("primer if");
 	       if(searchReg.test($nombre.val()) && searchReg.test($cedula.val())  && searchReg.test($salario.val()) && searchReg.test($dias.val()) ){

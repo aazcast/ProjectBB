@@ -6,8 +6,8 @@ var FormView = Marionette.ItemView.extend({
         <div class="row"><div class="grid-6"><label for="carnet">Carnet:</label></div><div class="grid-2"><input type="text" id="carnet" value="<%- carnet %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="carrera">Carrera:</label></div><div class="grid-2"><input type="text" id="carrera" value="<%- carrera %>"></div></div>\
         <div class="row"><div class="grid-6"><label for="lugar">Lugar de Procedencia:</label></div><div class="grid-2"><input type="text" id="lugar" value="<%- lugar %>"></div></div>\
-        <p><div class="success"><p>Su Estudiante se ha editado exitosamente</p></div><div class="goback"><a href="#funcionarios">Volver</a></div><a id="btn-editstudent" href="javascript:;">Editar Estudiante</a></p>\
-      </form></div>'),
+        <p><a id="btn-editstudent" href="javascript:;">Editar Estudiante</a></p>\
+      </form></div><div class="success"><p>Su Estudiante se ha editado exitosamente</p></div><div class="goback"><a href="#estudiantes">Volver</a></div>'),
 	//events
 	events : {
  		'click #btn-editstudent' : 'editEstudiante'//clickBoton edita un estudiante
@@ -34,9 +34,9 @@ var FormView = Marionette.ItemView.extend({
                var  miEstudianteCollection = new EstudianteCollection(JSON.parse(localStorage.getItem('estudianteCollection')));
                     miEstudianteCollection.where({cedula : this.model.attributes.cedula})[0].set({nombre : $nombre.val(), cedula : $cedula.val(), carnet : $carnet.val(), carrera : $carrera.val(), lugar : $lugar.val()});
                     localStorage["estudianteCollection"] = JSON.stringify(miEstudianteCollection);
-                    $('.success').show();
                     Backbone.history.stop();
                     Backbone.history.start();
+                    $('.success').show();
             }else {
                 console.log("in-else");
             }

@@ -6,7 +6,7 @@ var ProfesorComposite = Marionette.CompositeView.extend({
           <div class="row"><div class="grid-6"><label for="name">Nombre:</label></div><div class="grid-2"><input type="text" id="name"></div></div>\
           <div class="row"><div class="grid-6"><label for="cedula">Cédula:</label></div><div class="grid-2"><input type="text" id="cedula"></div></div>\
           <div class="row"><div class="grid-6"><label for="salario">Salario:</label></div><div class="grid-2"><input type="text" id="salario"></div></div>\
-          <div class="row"><div class="grid-6"><label for="diasLaborales">Dias Laborales:</label></div><div class="grid-2"><input type="checkbox" name="dias" id="diasLaborales" value="Lunes">Lunes<input type="checkbox" name="dias" id="diasLaborales" value="Martes">Martes<input type="checkbox" name="dias" id="diasLaborales" value="Miercoles">Miercoles<input type="checkbox" name="dias" id="diasLaborales" value="Jueves">Jueves<input type="checkbox" name="dias" id="diasLaborales" value="Viernes">Viernes<input type="checkbox" name="dias" id="diasLaborales" value="Sabado">Sabado<input type="checkbox" name="dias" id="diasLaborales" value="Domingo">Domingo</div></div>\
+          <div class="row"><div class="grid-6"><label for="diasLaborales">Dias Laborales:</label></div><div class="grid-2"><input type="checkbox" name="dias" id="l" value="Lunes">Lunes<input type="checkbox" name="dias" id="k" value="Martes">Martes<input type="checkbox" name="dias" id="m" value="Miercoles">Miercoles<input type="checkbox" name="dias" id="j" value="Jueves">Jueves<input type="checkbox" name="dias" id="v" value="Viernes">Viernes<input type="checkbox" name="dias" id="s" value="Sabado">Sabado<input type="checkbox" name="dias" id="d" value="Domingo">Domingo</div></div>\
           <p><a id="btn-newprofe" href="javascript:;">Crear Profesor</a></p>\
           <p><a id="btn-editprofe" href="javascript:;">Editar Profesor</a></p>\
       </form>\
@@ -42,9 +42,29 @@ var ProfesorComposite = Marionette.CompositeView.extend({
  		var $nombre = $('input#name'),
       		$cedula = $('input#cedula'),
       		$salario = $('input#salario'),
-      		$dias = $('input#diasLaborales'),
+      		$lunes = $('input#l'),
+      		$martes = $('input#k'),
+      		$miercoles = $('input#m'),
+      		$jueves = $('input#j'),
+      		$viernes = $('input#v'),
+      		$sabado = $('input#s'),
+      		$domingo = $('input#d'),
+      		$dias = "",
       		searchReg = /^[a-zA-Z0-9-]+$/;
       		//itisok = false;
+
+      		$("#l").prop("checked")
+
+      		 $('input[name=dias]').each(function (i, checkbox) {
+			  if ($(checkbox).is(":checked")) {
+
+			  	checkedCheckboxes = true;
+			  }
+			 });
+			 if (!checkedCheckboxes) {
+			  alert('seleccione almenos una casilla!');
+			  return false;
+			 }
 
       	if($nombre.val() != "" && $cedula.val() != ""){
       		console.log("primer if");
@@ -53,9 +73,8 @@ var ProfesorComposite = Marionette.CompositeView.extend({
 			       	nombre : $nombre.val(),
 			        cedula : $cedula.val(),
 			        salario : $salario.val(),
-			        diasLaborales : $dias.val(),
-		      	});
-		      	$('.success').show();
+
+		      	});	
 	    	}
 	    }else {
 	    	console.log("else");

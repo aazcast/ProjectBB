@@ -11,7 +11,7 @@ var EstudianteComposite = Marionette.CompositeView.extend({
         <p><a id="btn-newstudent" href="javascript:;">Crear Estudiante</a></p>\
       </form>\
       </div><div class="success"><p>Su Estudiante se ha creado exitosamente</p></div><div class="goback"><a href="#estudiantes">Volver</a></div><div class="boton cf"><a href="#crear">Crear Estudiante</a></div><div class="listusers"><table id="estudiantes"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
-
+	
 	//add the container
 	childViewContainer : '#estudiantes',
 

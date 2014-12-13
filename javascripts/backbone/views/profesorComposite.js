@@ -6,7 +6,7 @@ var ProfesorComposite = Marionette.CompositeView.extend({
           <div class="row"><div class="grid-6"><label for="name">Nombre:</label></div><div class="grid-2"><input type="text" id="name"></div></div>\
           <div class="row"><div class="grid-6"><label for="cedula">Cédula:</label></div><div class="grid-2"><input type="text" id="cedula"></div></div>\
           <div class="row"><div class="grid-6"><label for="salario">Salario:</label></div><div class="grid-2"><input type="text" id="salario"></div></div>\
-          <div class="row"><div class="grid-6"><label for="diasLaborales">Dias Laborales:</label></div><div class="grid-2"><input type="text" id="diasLaborales"></div></div>\
+          <div class="row"><div class="grid-6"><label for="diasLaborales">Dias Laborales:</label></div><div class="grid-2"><input type="checkbox" name="dias" id="diasLaborales" value="Lunes">Lunes<input type="checkbox" name="dias" id="diasLaborales" value="Martes">Martes<input type="checkbox" name="dias" id="diasLaborales" value="Miercoles">Miercoles<input type="checkbox" name="dias" id="diasLaborales" value="Jueves">Jueves<input type="checkbox" name="dias" id="diasLaborales" value="Viernes">Viernes<input type="checkbox" name="dias" id="diasLaborales" value="Sabado">Sabado<input type="checkbox" name="dias" id="diasLaborales" value="Domingo">Domingo</div></div>\
           <p><a id="btn-newprofe" href="javascript:;">Crear Profesor</a></p>\
           <p><a id="btn-editprofe" href="javascript:;">Editar Profesor</a></p>\
       </form>\

@@ -100,6 +100,94 @@ var universidadRouter = Backbone.Router.extend({
     $('.listusers').hide();
     $('#single').hide();
     $('.goback').show();
+    //validate Name
+    $('input#name').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate name
+    //validate cedula
+    $('input#cedula').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate cedula
+    //validate carrera
+    $('input#carrera').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate carrera
+    //validate carnet
+    $('input#carnet').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate carnet
+    //validate lugar
+    $('input#lugar').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate lugar
+    //validate salario
+    $('input#salario').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate salario
+    //validate diasLaborales
+    $('input#diasLaborales').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate diasLaborales
+    //validate departamento
+    $('input#departamento').on('blur', function () {
+      //this el input
+      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var $this = $(this)
+      if (!emailRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate departamento
   },
   showDefault : function(route){
     $("#persona-view").hide();

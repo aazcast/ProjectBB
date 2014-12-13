@@ -9,7 +9,7 @@ var FuncionarioComposite = Marionette.CompositeView.extend({
           <div class="row"><div class="grid-6"><label for="departamento">Departamento:</label></div><div class="grid-2"><input type="text" id="departamento"></div></div>\
           <p><a id="btn-newfunc" href="javascript:;">Crear Funcionario</a></p>\
       </form>\
-      </div><div class="goback"><a href="#funcionarios">Volver</a></div><div class="boton cf"><a href="#crear">Crear Funcionario</a></div><div class="listusers"><table id="funcionario"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
+      </div><div class="success"><p>Su Funcionario se ha creado exitosamente</p></div><div class="goback"><a href="#funcionarios">Volver</a></div><div class="boton cf"><a href="#crear">Crear Funcionario</a></div><div class="listusers"><table id="funcionario"><tr><td>Nombre</td><td>Cédula</td><td>Opciones</td></tr></table></div>'),
 
 	//add the container
 	childViewContainer : '#funcionario',
@@ -55,6 +55,7 @@ var FuncionarioComposite = Marionette.CompositeView.extend({
 		        	salario : $salario.val(),
 		        	departamento : $departamento.val(),
 	      		});	
+	      		$('.success').show();
 	    	}
 	    }else {
 	    	console.log("else");

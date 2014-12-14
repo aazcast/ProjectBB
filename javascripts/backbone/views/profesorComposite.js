@@ -52,7 +52,8 @@ var ProfesorComposite = Marionette.CompositeView.extend({
       		$dias = "",
       		$divCont = document.getElementById('date'),
 			$checks  = $divCont.getElementsByTagName('input'),
-      		searchReg = /^[a-zA-Z0-9-]+$/;
+      		searchReg = /^[a-zA-Z0-9-]+$/,
+      		checkedCheckboxes = false;
       		//itisok = false;
 
       		

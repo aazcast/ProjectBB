@@ -49,6 +49,7 @@ var universidadRouter = Backbone.Router.extend({
     $('#all-personas').hide();
     $('.goback').show();
     $("#no-route").hide();
+    $('#single').show();
     $('#single').html(miProfesorView.render().$el);
   },
 

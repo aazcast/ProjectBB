@@ -5,6 +5,7 @@ var EstudianteComposite = Marionette.CompositeView.extend({
       <form>\
         <div class="row"><div class="grid-6"><label for="name">Nombre:</label></div><div class="grid-2"><input type="text" id="name"></div></div>\
         <div class="row"><div class="grid-6"><label for="cedula">Cédula:</label></div><div class="grid-2"><input type="text" id="cedula"></div></div>\
+        <div class="row"><div class="grid-6"><label for="cedula">Fecha de Nacimiento:</label></div><div class="grid-2"><input type="date" id="nacimiento"></div></div>\
         <div class="row"><div class="grid-6"><label for="carnet">Carnet:</label></div><div class="grid-2"><input type="text" id="carnet"></div></div>\
         <div class="row"><div class="grid-6"><label for="carrera">Carrera:</label></div><div class="grid-2"><input type="text" id="carrera"></div></div>\
         <div class="row"><div class="grid-6"><label for="lugar">Lugar de Procedencia:</label></div><div class="grid-2"><input type="text" id="lugar"></div></div>\
@@ -41,9 +42,14 @@ var EstudianteComposite = Marionette.CompositeView.extend({
  		var $nombre = $('input#name'),
       		$cedula = $('input#cedula'),
       		$carnet = $('input#carnet'),
+      		$nacimiento = $('input#nacimiento'),
       		$carrera = $('input#carrera'),
       		$lugar = $('input#lugar'),
-      		searchReg = /^[a-zA-Z0-9-]+$/;
+      		searchReg = /^[a-zA-Z0-9-]+$/,
+      		fechaNac = null;
+
+      		fechNac = $nacimiento.val();
+      		fechNac = new Date();
       		
       if($nombre.val() != "" && $cedula.val() != ""){
       		console.log("primer if");
@@ -51,6 +57,7 @@ var EstudianteComposite = Marionette.CompositeView.extend({
 		    	this.collection.add({
 	        		nombre : $nombre.val(),
 	        		cedula : $cedula.val(),
+	        		nacimiento : fechNac,
 	        		carnet : $carnet.val(),
 	        		carrera : $carrera.val(),
 	       	 		lugar : $lugar.val()

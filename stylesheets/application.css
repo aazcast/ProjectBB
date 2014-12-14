@@ -249,3 +249,20 @@ display: none;
 	display: none;
 	text-align: center;
 }
+
+.detalles {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.detalles h2 {
+	font-size: 18px;
+	font-weight: bold;
+	border-bottom: 1px solid #c3c3c3;
+	padding: 4px 5px;
+}
+
+.detalles p {
+	line-height: 1.5;
+	
+}

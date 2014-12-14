@@ -24,11 +24,14 @@ var universidadRouter = Backbone.Router.extend({
     var miEstudianteView = new UnEstudianteView({model: miEstudiante});
     $('#all-personas').hide();
     $("#no-route").hide();
+    $('.goback').show();
+    $('#single').show();
     $('#single').html(miEstudianteView.render().$el);
   },
   showAllEstudiantes : function() {
     var miEstudiantesView = new EstudianteComposite({ collection : new EstudianteCollection(JSON.parse(localStorage.getItem('estudianteCollection'))) });
     $("#no-route").hide();
+    $('#single').hide();
     $("#all-personas").show();
     $('#all-personas').html(miEstudiantesView.render().$el);
   },
@@ -39,6 +42,7 @@ var universidadRouter = Backbone.Router.extend({
     $('#all-personas').html(miFormView.render().$el);
     $('.forms').show();
     $('.goback').show();
+    $('#single').hide();
     
   },
   //Profesores
@@ -47,7 +51,6 @@ var universidadRouter = Backbone.Router.extend({
     var miProfesor = miProfesoresCollection.where({cedula: _cedula})[0];
     var miProfesorView = new UnProfesorView({model: miProfesor});
     $('#all-personas').hide();
-    $('.goback').show();
     $("#no-route").hide();
     $('#single').show();
     $('#single').html(miProfesorView.render().$el);
@@ -56,6 +59,7 @@ var universidadRouter = Backbone.Router.extend({
   showAllProfesores : function(){
     var miProfesoresView = new ProfesorComposite({ collection : new ProfesorCollection(JSON.parse(localStorage.getItem('profesorCollection'))) });
     $("#no-route").hide();
+    $('#single').hide();
     $("#all-personas").show();
     $('#all-personas').html(miProfesoresView.render().$el);
   },
@@ -67,6 +71,7 @@ var universidadRouter = Backbone.Router.extend({
     $('#all-personas').html(miFormViewProfesor.render().$el);
     $('.forms').show();
     $('.goback').show();
+    $('#single').hide();
   },
   //Funcionarios
   showFuncionario : function(_cedula){
@@ -74,7 +79,8 @@ var universidadRouter = Backbone.Router.extend({
     var miFuncionario = miFuncionarioCollection.where({cedula: _cedula})[0];
     var miFuncionarioView = new UnFuncionarioView({model: miFuncionario});
     $('#all-personas').hide();
-    $('.goback').show();
+    $('.goback').show();    
+    $('#single').show();
     $("#no-route").hide();
     $('#single').html(miFuncionarioView.render().$el);
   },
@@ -82,6 +88,7 @@ var universidadRouter = Backbone.Router.extend({
   showAllFuncionarios : function(){
     var miFuncionarioView = new FuncionarioComposite({ collection : new FuncionarioCollection(JSON.parse(localStorage.getItem('funcionarioCollection'))) });
     $("#no-route").hide();
+    $('#single').hide();
     $("#all-personas").show();
     $('#all-personas').html(miFuncionarioView.render().$el);
   },
@@ -92,6 +99,7 @@ var universidadRouter = Backbone.Router.extend({
     var miFuncionarioView = new FormViewFuncionario({model: miFuncionario});
     $('#all-personas').html(miFuncionarioView.render().$el);
     $('.forms').show();
+    $('#single').hide();
     $('.goback').show();
   },
   //Default route
@@ -104,9 +112,9 @@ var universidadRouter = Backbone.Router.extend({
     //validate Name
     $('input#name').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
@@ -115,9 +123,9 @@ var universidadRouter = Backbone.Router.extend({
     //validate cedula
     $('input#cedula').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
@@ -126,9 +134,9 @@ var universidadRouter = Backbone.Router.extend({
     //validate carrera
     $('input#carrera').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
@@ -137,9 +145,9 @@ var universidadRouter = Backbone.Router.extend({
     //validate carnet
     $('input#carnet').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
@@ -148,9 +156,9 @@ var universidadRouter = Backbone.Router.extend({
     //validate lugar
     $('input#lugar').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
@@ -159,9 +167,9 @@ var universidadRouter = Backbone.Router.extend({
     //validate salario
     $('input#salario').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
@@ -170,9 +178,9 @@ var universidadRouter = Backbone.Router.extend({
     //validate diasLaborales
     $('input#diasLaborales').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
@@ -181,18 +189,30 @@ var universidadRouter = Backbone.Router.extend({
     //validate departamento
     $('input#departamento').on('blur', function () {
       //this el input
-      var emailRegExp = /^[a-zA-Z0-9-]+$/;
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
       var $this = $(this)
-      if (!emailRegExp.test($this.val())) {
+      if (!txtRegExp.test($this.val())) {
         $this.addClass('fail')
       } else {
         $this.removeClass('fail')
       }
     });//end validate departamento
+    //validate nacimiento
+    $('input#nacimiento').on('blur', function () {
+      //this el input
+      var txtRegExp = /^[a-zA-Z0-9- ]+$/;
+      var $this = $(this)
+      if (!txtRegExp.test($this.val())) {
+        $this.addClass('fail')
+      } else {
+        $this.removeClass('fail')
+      }
+    });//end validate nacimiento
   },
   showDefault : function(route){
     $("#persona-view").hide();
     $("#all-personas").hide();
+    $('#single').hide();
     $("#no-route") .show();
   }
 });

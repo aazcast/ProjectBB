@@ -45,8 +45,8 @@ var EstudianteComposite = Marionette.CompositeView.extend({
       		$nacimiento = $('input#nacimiento'),
       		$carrera = $('input#carrera'),
       		$lugar = $('input#lugar'),
-      		searchReg = /^[a-zA-Z0-9-]+$/,
-      		fechaNac = null;
+      		searchReg = /^[a-zA-Z0-9- ]+$/,
+      		fechaNac = null,
 
       		fechNac = $nacimiento.val();
       		fechNac = new Date();
@@ -65,7 +65,37 @@ var EstudianteComposite = Marionette.CompositeView.extend({
       			$('.success').show();
 	    	}
 	    }else {
-	    	console.log("else");
+	    	//nombre el input
+		      if (!searchReg.test($nombre.val())) {
+		        $nombre.addClass('fail')
+		      } else {
+		        $nombre.removeClass('fail')
+		      }
+		      if (!searchReg.test($cedula.val())) {
+		        $cedula.addClass('fail')
+		      } else {
+		        $cedula.removeClass('fail')
+		      }
+		      if (!searchReg.test($nacimiento.val())) {
+		        $nacimiento.addClass('fail')
+		      } else {
+		        $nacimiento.removeClass('fail')
+		      }
+		      if (!searchReg.test($carnet.val())) {
+		        $carnet.addClass('fail')
+		      } else {
+		        $carnet.removeClass('fail')
+		      }
+		      if (!searchReg.test($carrera.val())) {
+		        $carrera.addClass('fail')
+		      } else {
+		        $carrera.removeClass('fail')
+		      }
+		      if (!searchReg.test($lugar.val())) {
+		        $lugar.addClass('fail')
+		      } else {
+		        $lugar.removeClass('fail')
+		      }
 	    }
  	}
 
